@@ -43,14 +43,14 @@ Recebemos um dump com lista de URLs de imagens de usuários (avatares) que vamos
 Este dump contém imagens de milhões de usuários e URLs, e é atualizado a cada 10 minutos:
 
 ```json
-{"productId": "pid2", "image": "http://api.ozmap.com.br/test-platform/6.png"}
-{"productId": "pid1", "image": "http://api.ozmap.com.br/test-platform/1.png"}
-{"productId": "pid1", "image": "http://api.ozmap.com.br/test-platform/2.png"}
-{"productId": "pid1", "image": "http://api.ozmap.com.br/test-platform/7.png"}
-{"productId": "pid1", "image": "http://api.ozmap.com.br/test-platform/3.png"}
-{"productId": "pid1", "image": "http://api.ozmap.com.br/test-platform/1.png"}
-{"productId": "pid2", "image": "http://api.ozmap.com.br/test-platform/5.png"}
-{"productId": "pid2", "image": "http://api.ozmap.com.br/test-platform/4.png"}
+{"userId": "pid2", "image": "http://api.ozmap.com.br/test-platform/6.png"}
+{"userId": "pid1", "image": "http://api.ozmap.com.br/test-platform/1.png"}
+{"userId": "pid1", "image": "http://api.ozmap.com.br/test-platform/2.png"}
+{"userId": "pid1", "image": "http://api.ozmap.com.br/test-platform/7.png"}
+{"userId": "pid1", "image": "http://api.ozmap.com.br/test-platform/3.png"}
+{"userId": "pid1", "image": "http://api.ozmap.com.br/test-platform/1.png"}
+{"userId": "pid2", "image": "http://api.ozmap.com.br/test-platform/5.png"}
+{"userId": "pid2", "image": "http://api.ozmap.com.br/test-platform/4.png"}
 ```
 
 As URLs pertencem a uma empresa terceirizada que hospeda a maioria destas imagens, e ela nos cobra um valor fixo por cada request.
@@ -60,15 +60,15 @@ Como não é interessante atualizar nossa base com dados ruins, filtramos apenas
 O processo de atualização deve receber como input um dump sanitizado, onde o formato é ligeiramente diferente da entrada:
 
 ```json
-{"productId": "pid1", "images": ["http://api.ozmap.com.br/test-platform/1.png", "http://api.ozmap.com.br/test-platform/2.png", "http://api.ozmap.com.br/test-platform/7.png"]}
-{"productId": "pid2", "images": ["http://api.ozmap.com.br/test-platform/3.png", "http://api.ozmap.com.br/test-platform/5.png", "http://api.ozmap.com.br/test-platform/6.png"]}
+{"userId": "pid1", "images": ["http://api.ozmap.com.br/test-platform/1.png", "http://api.ozmap.com.br/test-platform/2.png", "http://api.ozmap.com.br/test-platform/7.png"]}
+{"userId": "pid2", "images": ["http://api.ozmap.com.br/test-platform/3.png", "http://api.ozmap.com.br/test-platform/5.png", "http://api.ozmap.com.br/test-platform/6.png"]}
 ```
 
 Para diminuir a quantidade de requests necessárias para validar as URLs, decidimos limitar a quantidade de imagens por usuário em até 3.
 O seu objetivo é criar um programa que gera o dump final no menor tempo possível e com o mínimo de requests desnecessárias (já que existe um custo fixo por requisição).
 
-O arquivo [input-dump.gz](./resources/input-dump.gz) é um exemplo do dump de entrada. E você pode usá-lo para testar sua implementação.
-Também criamos uma api que responde as URLs do `input-dump.gz`. Ela é apenas um mock, mas vai te ajudar a implementar a solução do desafio. Para executá-la, basta:
+O arquivo [input-dump.tar](./resources/input-dump.tar) é um exemplo do dump de entrada. E você pode usá-lo para testar sua implementação.
+Também criamos uma api que responde as URLs do `input-dump.tar`. Ela é apenas um mock, mas vai te ajudar a implementar a solução do desafio. Para executá-la, basta:
 
 ```shell
 cd images-api
