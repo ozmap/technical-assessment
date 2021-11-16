@@ -1,21 +1,21 @@
 {
   "name": "images-api",
   "version": "1.0.0",
-  "description": "Mock API that responds to requests that send URLs in the format found in input-dump.gz",
+  "description": "Mock API that responds to requests that send URLs in the format found in input-dump",
   "main": "dist/index.js",
   "scripts": {
     "start": "ts-node-dev --poll src/index.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ozmap/ozmap-tech-challenge.git"
+    "url": "git+https://github.com/ozmap/technical-assessment.git"
   },
   "author": "dev@ozmap.com.br",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ozmap/ozmap-tech-challenge/issues"
+    "url": "https://github.com/ozmap/technical-assessment/issues"
   },
-  "homepage": "https://github.com/ozmap/ozmap-tech-challenge#readme",
+  "homepage": "https://github.com/ozmap/technical-assessment#readme",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "ts-node-dev": "^1.1.8",
