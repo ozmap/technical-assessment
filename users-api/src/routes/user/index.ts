@@ -1,9 +1,17 @@
 import express, { Request, Response } from "express";
-import { createOrUpdateUser } from "repositories/user";
+import { createOrUpdateUser, fetchUsers } from "repositories/user";
 import { Md5 } from "ts-md5/dist/md5";
 import { setHashWithTimeout, hashExists } from "utils/requestTimeout";
 
 const userRouter = express.Router();
+
+userRouter.get("/", async function (req: Request, res: Response) {
+  const users = await fetchUsers();
+  if (users) {
+    res.status(200).send(users);
+    return;
+  }
+});
 
 userRouter.post("/", async function (req: Request, res: Response) {
   const bodyHash = Md5.hashStr(JSON.stringify(req.body));
