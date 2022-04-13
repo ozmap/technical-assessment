@@ -1,24 +1,20 @@
-import { DataSource } from "typeorm";
 import "reflect-metadata";
+import { ConnectionOptions, Connection, createConnection } from "typeorm";
 
-const dataSource = new DataSource({
-  type: "mysql",
-  host: "localhost",
-  database: "dragondb",
-  username: "root",
-  password: "root",
-  dropSchema: true,
-  synchronize: true,
-  entities: ["src/models/**/*.ts"],
-});
+let connection: Connection | null = null;
 
-dataSource
-  .initialize()
-  .then(() => {
-    console.log("Data Source has been initialized successfully.");
-  })
-  .catch((err) => {
-    console.error("Error during Data Source initialization:", err);
-  });
-
-export default dataSource;
+export default async function getConnection(): Promise<Connection> {
+  if (!connection) {
+    connection = await createConnection({
+      type: "mysql",
+      host: process.env.DB_HOST || "localhost",
+      database: "users-api-db",
+      username: process.env.DB_USER || "root",
+      password: process.env.DB_PASSWORD || "root",
+      entities: ["src/models/**/*.ts"],
+      synchronize: true,
+      dropSchema: true,
+    } as ConnectionOptions);
+  }
+  return connection;
+}
