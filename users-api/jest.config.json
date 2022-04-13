@@ -1,0 +1,16 @@
+{
+  "roots": [
+    "<rootDir>",
+    "<rootDir>/src/database/",
+    "<rootDir>/src/models/",
+    "<rootDir>/src/utils/"
+  ],
+  "modulePaths": [
+    "<rootDir>",
+    "<rootDir>/src/database/",
+    "<rootDir>/src/models/",
+    "<rootDir>/src/utils/"
+  ],
+  "moduleDirectories": ["node_modules", "src"],
+  "testPathIgnorePatterns": ["./dist/*", "./node_modules/*"]
+}
