@@ -9,7 +9,7 @@ Para testes:
 
 
  Para "deploy"
-- Docker, minikube e kubectl instalados.
+- Docker, minikube com driver docker e kubectl instalados.
 
 ## Setup local
 A partir de /users-api
