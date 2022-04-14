@@ -105,3 +105,6 @@ dist
 
 # Skaffold file
 users-api/skaffold.yaml
+
+# sanitized dump
+user-avatar-dump/sanitized-dump.json
