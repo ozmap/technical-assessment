@@ -14,9 +14,13 @@ userRouter.get("/", async function (req: Request, res: Response) {
 });
 
 userRouter.post("/", async function (req: Request, res: Response) {
+  // creates hash from request's body
   const bodyHash = Md5.hashStr(JSON.stringify(req.body));
+  // check if hash exists in redis database already
   if (!(await hashExists(bodyHash))) {
+    // sets a new key with a 10 minutes automatic timeout
     setHashWithTimeout(bodyHash);
+    // upserts user
     const user = await createOrUpdateUser(req.body);
     res.status(201).send(user);
     return;
