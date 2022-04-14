@@ -18,6 +18,7 @@ A partir de /users-api
 
 ### Início local
 -`yarn start` para iniciar o programa localmente.
+- Teste a API com localhost:3000/v1/users.
 
 ### Testes
 -`yarn test` para rodar os testes.
