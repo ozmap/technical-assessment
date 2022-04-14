@@ -2,6 +2,7 @@
 
 ## Requerimentos
 - NodeJS e Yarn instalados.
+- API images-api inicializada.
 
 ## Setup local
 A partir de /user-avatar-d
