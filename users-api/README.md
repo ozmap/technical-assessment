@@ -29,6 +29,9 @@ A partir de /users-api
 - `kubectl apply -f kube/namespaces/` para inicializar os namespaces.
 - `kubectl apply -f kube` para inicializar os serviços.
 - `minikube tunnel` para poder acessar o app pelo localhost.
+- `minikube service --url -n app app` para resgatar o ip do serviço.
+- A rota usada é /v1/users.
+
 
 Limpeza
 - `kubectl delete namespaces app` para deletar o namespace app.
