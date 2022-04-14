@@ -9,7 +9,7 @@ Para testes:
 
 
  Para "deploy"
-- Docker, minikube e kubectl instalados.
+- Docker, minikube com driver docker e kubectl instalados.
 
 ## Setup local
 A partir de /users-api
@@ -18,6 +18,7 @@ A partir de /users-api
 
 ### Início local
 -`yarn start` para iniciar o programa localmente.
+- Teste a API com localhost:3000/v1/users.
 
 ### Testes
 -`yarn test` para rodar os testes.
@@ -29,6 +30,9 @@ A partir de /users-api
 - `kubectl apply -f kube/namespaces/` para inicializar os namespaces.
 - `kubectl apply -f kube` para inicializar os serviços.
 - `minikube tunnel` para poder acessar o app pelo localhost.
+- `minikube service --url -n app app` para resgatar o ip do serviço.
+- A rota usada é /v1/users.
+
 
 Limpeza
 - `kubectl delete namespaces app` para deletar o namespace app.
