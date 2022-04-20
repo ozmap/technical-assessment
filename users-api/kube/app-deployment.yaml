@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o kube/
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: app
+  name: app
+  namespace: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -o kube/
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: app
+    spec:
+      containers:
+        - env:
+            - name: DB_HOST
+              value: db.db
+            - name: REDIS_HOST
+              value: redis.redis.svc.cluster.local
+            - name: REDIS_MASTER
+              value: redis-0.redis.redis.svc.cluster.local
+          image: node-mysql-app
+          imagePullPolicy: Never
+          name: app
+          ports:
+            - containerPort: 3000
+          resources: {}
+          stdin: true
+          tty: true
+      restartPolicy: Always
+status: {}

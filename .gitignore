@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Skaffold file
+users-api/skaffold.yaml
+
+# sanitized dump
+user-avatar-dump/sanitized-dump.json
