@@ -101,7 +101,6 @@ De modo que a sua solução seja passível de ser avaliada, a mesma deverá ser 
 * Realizar o fork deste repositório;
 * Alterar a visibilidade do fork para privada;
 * Adicionar como contribuidores os seguintes usuários:
-  - [Guilherme Gonçalves (guligon90)](https://github.com/guligon90)
   - [José Raupp (raupp)](https://github.com/raupp)
 * Publicar os seus commits em um branch, como o nome no formato `solution/[your-github-username]`.
 
